@@ -4,7 +4,7 @@
 #define  PWMB  9
 #define  REVB  8
 #define  FORB  10
-#define  RELAY  13
+#define  RELAY  12
 
 void initialMotor() {
   pinMode(RELAY, OUTPUT);

@@ -1,5 +1,6 @@
 #include <LBT.h>
 #include <LBTServer.h>
+#define RELAY 12
 void setup()
 {
   initialMotor();
@@ -22,6 +23,7 @@ void setup()
 
 void loop()
 {
+  pinMode(RELAY, OUTPUT);
   if (!LBTServer.connected())
   {
     // waiting for Spp Client to connect
@@ -95,9 +97,15 @@ void loop()
           rightMotor(400, HIGH, LOW);
           delay(20);
           break;
+        case 'F':
+          Serial.println("Fire!");
+          digitalWrite(RELAY,HIGH);
+          delay(20);
+          break;
       }
     }
     leftMotor(0, LOW, LOW);
     rightMotor(0, LOW, LOW);
+    digitalWrite(RELAY,LOW);
   }
 }
